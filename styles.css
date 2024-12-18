@@ -23,6 +23,7 @@ html, body{
     justify-content: center;
     align-items: center;
     width: 100vw;
+    position: relative;
 }
 
 .container{
@@ -54,6 +55,18 @@ section.home{
         img{
             width: 160px;
             margin-left: 30px;
+        }
+
+        i{
+            display: none;
+            font-size: 24px;
+            color: var(--White);
+            margin-right: 30px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            &:hover{
+                scale: 1.05;
+            }
         }
 
         .side{
@@ -317,7 +330,7 @@ section.contacts{
 
         h2{
             font-size: 32px;
-            font-weight: 700;
+            font-weight: 900;
             letter-spacing: 3px;
             text-align: center;
             margin-bottom: 20px;
@@ -361,6 +374,159 @@ section.contacts{
                         color: var(--Very-dark-desaturated-blue);
                     }
                 }
+            }
+        }
+    }
+}
+
+.mobile-menu{
+    position: absolute;
+    top: 60px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 80%;
+    height: 40vh;
+    background-color: var(--White);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    z-index: 1000;
+
+    a{
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-decoration: none;
+        color: var(--Dark-grayish-blue);
+        transition: 0.3s ease;
+        &:hover{
+            color: var(--Very-dark-desaturated-blue);
+        }
+    }
+
+    .active{
+        background-color: var(--Yellow);
+        color: var(--Dark-desaturated-cyan);
+        padding: 10px 20px;
+        margin-top: 20px;
+        cursor: pointer;
+        border-radius: 25px;
+        font-family: "Fraunces", sans-serif;
+        text-transform: uppercase;
+        font-size: 16px;
+        transition: 0.3s ease;
+        &:hover{
+            background-color: var(--Soft-red);
+            color: var(--White);
+        }
+    }
+}
+
+/* Responsive design */
+
+@media (max-width: 375px){
+    section.home{
+        height: 80vh;
+        background: url("./images/mobile/image-header.jpg");
+        background-size: cover;
+        background-position: center;
+        h1{
+            font-size: 32px;
+        }
+        img.arrow{
+            margin-top: 50px;
+        }
+        header{
+            img{
+                width: 120px;
+            }
+
+            i{display: block;}
+
+            .side{
+                display: none;
+            }
+        }
+    }
+    section.about{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr);
+    
+        .details{
+            grid-row: 2 / 3;
+            padding: 20px;
+    
+            h2{
+                font-size: 30px;
+                text-align: center;
+            }
+    
+            p{
+                font-size: 16px;
+                text-align: center;
+            }
+    
+            a{
+                font-size: 16px;
+                border-bottom: 6px solid #fad40031;
+                border-radius: 5px;
+                align-self: center;
+            }
+        }
+
+        .image{
+            grid-row: 1/2;
+        }
+    
+        .details.reverse{
+            grid-column: 1 / 2;
+            grid-row: 4/5;
+            a{
+                border-bottom: 6px solid #fa000031;
+            }
+        }
+
+        .image.reverse{
+            grid-row: 3/4;
+            grid-column: 1 / 2;
+        }
+    
+        .graphic, .photography{
+            .info{
+                width: 80%;
+                bottom: 0px;
+                h2{
+                    font-size: 22px;
+                }
+    
+                p{
+                    font-size: 12px;
+                }
+            }
+    
+        }
+    }
+    section.reviews{
+        height: 150vh;
+        .testimonials{
+            width: 100%;
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: 20px;
+        }
+    }
+    section.contacts{
+        .gallery{
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .footer{
+            .text{
+                width: 90%;
+                font-weight: 600;
+            }
+            .social{
+                width: 50%;
             }
         }
     }
